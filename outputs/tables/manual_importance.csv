@@ -1,0 +1,15 @@
+param,importance,method
+max_depth,0.4268190750928472,manual_bo
+bootstrap,0.29132837332464756,manual_bo
+min_samples_leaf,0.08837577632036413,manual_bo
+max_features,0.07315351229570469,manual_bo
+min_samples_split,0.056135380252032546,manual_bo
+n_estimators,0.048836819000964184,manual_bo
+criterion,0.015351063713439743,manual_bo
+max_depth,0.510506642062622,manual_random
+max_features,0.18350458607118716,manual_random
+n_estimators,0.10917343410480752,manual_random
+min_samples_leaf,0.0752403871292518,manual_random
+min_samples_split,0.06990004603909471,manual_random
+criterion,0.029567599545086597,manual_random
+bootstrap,0.022107305047950252,manual_random

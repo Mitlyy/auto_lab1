@@ -1,0 +1,15 @@
+param,importance,method
+min_samples_leaf,0.36379481455762774,optuna_random
+max_depth,0.16006555925974497,optuna_random
+max_features,0.1427438660129809,optuna_random
+criterion,0.141671854321184,optuna_random
+n_estimators,0.09745705254525706,optuna_random
+min_samples_split,0.06035160547077881,optuna_random
+bootstrap,0.033915247832426575,optuna_random
+min_samples_leaf,0.4083607127362255,optuna_tpe
+max_features,0.20795596631151078,optuna_tpe
+max_depth,0.15097991867401198,optuna_tpe
+n_estimators,0.08360112511405049,optuna_tpe
+min_samples_split,0.07178917031623067,optuna_tpe
+criterion,0.061950820345925375,optuna_tpe
+bootstrap,0.015362286502045302,optuna_tpe
