@@ -7,7 +7,7 @@
 - Алгоритм с учителем: `RandomForestClassifier`.
 - Датасет: OpenML `diabetes` (`data_id=37`).
 - Целевая функция: средняя `accuracy` на `4-fold CV`.
-- Количество точек на метод: `48` (в 1.5 раза больше, чем раньше `32`).
+- Количество точек на метод: `48`
 - Оптимизируемые гиперпараметры (7 шт.):
   `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`,
   `max_features`, `bootstrap`, `criterion`.
