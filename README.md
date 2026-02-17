@@ -1,10 +1,18 @@
 # Lab 1
 
+## Запуск
+
+```bash
+source .venv/bin/activate
+python auto_lab1/run_auto_lab1.py --n-trials 48 --n-init 8 --n-candidates 2000 --openml-data-id 37
+```
+
 ## Что выбрано
 
 - Алгоритм с учителем: `RandomForestClassifier`.
 - Датасет: OpenML `diabetes` (`data_id=37`).
 - Целевая функция: средняя `accuracy` на `4-fold CV`.
+- Количество точек на метод: `48` (в 1.5 раза больше, чем раньше `32`).
 - Оптимизируемые гиперпараметры (7 шт.):
   `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`,
   `max_features`, `bootstrap`, `criterion`.
@@ -42,8 +50,8 @@
 
 | method | best_score | best_step | mean_score |
 | --- | --- | --- | --- |
-| manual_bo | 0.77734 | 26 | 0.76660 |
-| manual_random | 0.76953 | 16 | 0.76257 |
+| manual_bo | 0.77734 | 26 | 0.76676 |
+| manual_random | 0.77214 | 37 | 0.76294 |
 
 Итог: ручной BO лучше случайного поиска по лучшему найденному значению метрики.
 
@@ -51,8 +59,8 @@
 
 | method | best_score | best_step | mean_score |
 | --- | --- | --- | --- |
-| optuna_tpe | 0.78776 | 17 | 0.77047 |
-| optuna_random | 0.78516 | 9 | 0.76497 |
+| optuna_tpe | 0.78776 | 17 | 0.76953 |
+| optuna_random | 0.78516 | 9 | 0.76389 |
 
 Итог: `Optuna TPE` тоже лучше `Optuna Random`.
 
@@ -82,7 +90,27 @@
 
 ![optuna importance](outputs/figures/optuna_importance.png)
 
+### Графики по каждому гиперпараметру (Manual)
+
+- `n_estimators`: ![manual n_estimators](outputs/figures/manual_params/manual_param_n_estimators.png)
+- `max_depth`: ![manual max_depth](outputs/figures/manual_params/manual_param_max_depth.png)
+- `min_samples_split`: ![manual min_samples_split](outputs/figures/manual_params/manual_param_min_samples_split.png)
+- `min_samples_leaf`: ![manual min_samples_leaf](outputs/figures/manual_params/manual_param_min_samples_leaf.png)
+- `max_features`: ![manual max_features](outputs/figures/manual_params/manual_param_max_features.png)
+- `bootstrap`: ![manual bootstrap](outputs/figures/manual_params/manual_param_bootstrap.png)
+- `criterion`: ![manual criterion](outputs/figures/manual_params/manual_param_criterion.png)
+
+### Графики по каждому гиперпараметру (Optuna)
+
+- `n_estimators`: ![optuna n_estimators](outputs/figures/optuna_params/optuna_param_n_estimators.png)
+- `max_depth`: ![optuna max_depth](outputs/figures/optuna_params/optuna_param_max_depth.png)
+- `min_samples_split`: ![optuna min_samples_split](outputs/figures/optuna_params/optuna_param_min_samples_split.png)
+- `min_samples_leaf`: ![optuna min_samples_leaf](outputs/figures/optuna_params/optuna_param_min_samples_leaf.png)
+- `max_features`: ![optuna max_features](outputs/figures/optuna_params/optuna_param_max_features.png)
+- `bootstrap`: ![optuna bootstrap](outputs/figures/optuna_params/optuna_param_bootstrap.png)
+- `criterion`: ![optuna criterion](outputs/figures/optuna_params/optuna_param_criterion.png)
+
 ## Краткий вывод
 
 - В обоих сценариях (ручной и Optuna) байесовский подход дал лучший итог, чем random search.
-- На OpenML `diabetes` чаще всего важны: `max_depth`, `min_samples_leaf`, `max_features`, иногда `bootstrap`.
+- На OpenML `diabetes` чаще всего важны: `min_samples_leaf`, `max_depth`, `max_features`.

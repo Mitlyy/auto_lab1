@@ -11,7 +11,12 @@ from .config import ExperimentConfig
 from .manual_search import run_manual_bayesian_optimization, run_random_search
 from .objective import load_data, make_cv
 from .optuna_search import run_optuna_search
-from .plotting import plot_best_vs_step, plot_importance, plot_space_projection
+from .plotting import (
+    plot_best_vs_step,
+    plot_importance,
+    plot_parameter_sweeps,
+    plot_space_projection,
+)
 from .reporting import add_best_so_far, save_markdown_table, summarize
 from .search_space import get_search_space
 
@@ -81,6 +86,13 @@ def run_experiment(config: ExperimentConfig) -> dict[str, Path]:
         "Manual: Hyperparameter importance",
     )
     manual_importance.to_csv(table_dir / "manual_importance.csv", index=False)
+    manual_param_paths = plot_parameter_sweeps(
+        manual_all,
+        space,
+        fig_dir / "manual_params",
+        "manual",
+        "Manual",
+    )
 
     optuna_random = run_optuna_search(
         sampler_name="random",
@@ -123,6 +135,13 @@ def run_experiment(config: ExperimentConfig) -> dict[str, Path]:
         "Optuna: Hyperparameter importance",
     )
     optuna_importance.to_csv(table_dir / "optuna_importance.csv", index=False)
+    optuna_param_paths = plot_parameter_sweeps(
+        optuna_all,
+        space,
+        fig_dir / "optuna_params",
+        "optuna",
+        "Optuna",
+    )
 
     report = {
         "dataset": f"openml:{dataset_meta['name']} (id={dataset_meta['data_id']})",
@@ -133,6 +152,8 @@ def run_experiment(config: ExperimentConfig) -> dict[str, Path]:
         "manual_summary": manual_summary.to_dict(orient="records"),
         "optuna_summary": optuna_summary.to_dict(orient="records"),
         "artifacts_dir": str(out_dir),
+        "manual_param_plots": [str(p) for p in manual_param_paths],
+        "optuna_param_plots": [str(p) for p in optuna_param_paths],
     }
     report_path = out_dir / "report.json"
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")

@@ -6,7 +6,7 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class ExperimentConfig:
-    n_trials: int = 32
+    n_trials: int = 48
     n_init: int = 8
     n_candidates: int = 2000
     seed: int = 42

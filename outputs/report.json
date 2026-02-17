@@ -9,19 +9,19 @@
   },
   "metric": "4-fold CV accuracy",
   "model": "RandomForestClassifier",
-  "n_trials_per_method": 32,
+  "n_trials_per_method": 48,
   "manual_summary": [
     {
       "method": "manual_bo",
       "best_score": 0.77734375,
       "best_step": 26,
-      "mean_score": 0.7666015625
+      "mean_score": 0.7667643229166666
     },
     {
       "method": "manual_random",
-      "best_score": 0.76953125,
-      "best_step": 16,
-      "mean_score": 0.7625732421875
+      "best_score": 0.7721354166666667,
+      "best_step": 37,
+      "mean_score": 0.762939453125
     }
   ],
   "optuna_summary": [
@@ -29,14 +29,32 @@
       "method": "optuna_tpe",
       "best_score": 0.7877604166666667,
       "best_step": 17,
-      "mean_score": 0.7704671223958333
+      "mean_score": 0.76953125
     },
     {
       "method": "optuna_random",
       "best_score": 0.78515625,
       "best_step": 9,
-      "mean_score": 0.7649739583333333
+      "mean_score": 0.763888888888889
     }
   ],
-  "artifacts_dir": "auto_lab1/outputs"
+  "artifacts_dir": "auto_lab1/outputs",
+  "manual_param_plots": [
+    "auto_lab1/outputs/figures/manual_params/manual_param_n_estimators.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_max_depth.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_min_samples_split.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_min_samples_leaf.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_max_features.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_bootstrap.png",
+    "auto_lab1/outputs/figures/manual_params/manual_param_criterion.png"
+  ],
+  "optuna_param_plots": [
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_n_estimators.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_max_depth.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_min_samples_split.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_min_samples_leaf.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_max_features.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_bootstrap.png",
+    "auto_lab1/outputs/figures/optuna_params/optuna_param_criterion.png"
+  ]
 }

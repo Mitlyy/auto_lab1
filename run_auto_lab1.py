@@ -16,7 +16,7 @@ from auto_lab1.pipeline import run_experiment
 
 def parse_args() -> ExperimentConfig:
     parser = argparse.ArgumentParser(description="Manual and Optuna HPO comparison")
-    parser.add_argument("--n-trials", type=int, default=32, help="Trials per method")
+    parser.add_argument("--n-trials", type=int, default=48, help="Trials per method")
     parser.add_argument(
         "--n-init",
         type=int,
