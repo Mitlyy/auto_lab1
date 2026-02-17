@@ -1,11 +1,6 @@
 # Lab 1
 
-## Запуск
 
-```bash
-source .venv/bin/activate
-python auto_lab1/run_auto_lab1.py --n-trials 48 --n-init 8 --n-candidates 2000 --openml-data-id 37
-```
 
 ## Что выбрано
 
@@ -31,7 +26,7 @@ python auto_lab1/run_auto_lab1.py --n-trials 48 --n-init 8 --n-candidates 2000 -
 7. Оценена важность гиперпараметров (`RandomForestRegressor.feature_importances_` на истории трайлов).
 8. Повторены шаги 4-7 через `Optuna` (`TPESampler` vs `RandomSampler`).
 
-## Структура проекта
+## Структура 
 
 - `auto_lab1/run_auto_lab1.py` - CLI-точка входа.
 - `auto_lab1/src/auto_lab1/config.py` - конфиг эксперимента.
